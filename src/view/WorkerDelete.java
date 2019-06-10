@@ -85,7 +85,7 @@ public class WorkerDelete extends JFrame {
         //取消窗体
         setUndecorated(true);
         //设置图标
-        this.setIconImage(new ImageIcon("picture/商场.png").getImage());
+        this.setIconImage(new ImageIcon("picture/员工管理.png").getImage());
 
         setBounds(100, 100, 368, 573);
         setLocation(WindowXY.getXY(this.getSize()));//界面居中

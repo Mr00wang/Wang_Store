@@ -93,7 +93,7 @@ public class Store_Info extends JFrame {
         //取消窗体
         setUndecorated(true);
         //设置图标
-        this.setIconImage(new ImageIcon("picture/商场.png").getImage());
+        this.setIconImage(new ImageIcon("picture/商品管理.png").getImage());
         //
         //setBounds(100, 100, 774, 563);
         setBounds(100, 100, 841, 640);

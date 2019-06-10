@@ -86,7 +86,7 @@ public class StoreDelete extends JFrame {
         //取消窗体
         setUndecorated(true);
         //设置图标
-        this.setIconImage(new ImageIcon("picture/商场.png").getImage());
+        this.setIconImage(new ImageIcon("picture/商品管理.png").getImage());
         //
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 374, 568);

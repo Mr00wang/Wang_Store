@@ -79,7 +79,7 @@ public class StoreAdd extends JFrame {
         //取消窗体
         setUndecorated(true);
         //设置图标
-        this.setIconImage(new ImageIcon("picture/商场.png").getImage());
+        this.setIconImage(new ImageIcon("picture/商品管理.png").getImage());
         setBounds(100, 100, 442, 393);
         setLocation(WindowXY.getXY(this.getSize()));//界面居中
         c.setBorder(new LineBorder(Color.GRAY));
