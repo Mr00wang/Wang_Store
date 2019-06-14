@@ -49,6 +49,7 @@ public class MenuWindow extends JFrame {
     private JButton button8;
     private JButton button9;
     protected Point pressedPoint;
+    private JLabel label,label_1;
 
     /**
      * Launch the application.
@@ -219,7 +220,18 @@ public class MenuWindow extends JFrame {
         button9.setBounds(42, 500, 233, 49);
         c.add(button9);
 
+        //版权
+        label = new JLabel("设计者:1801汪京龙");
+        label.setForeground(new Color(0, 191, 255));
+        label.setFont(new Font("宋体", Font.PLAIN, 24));
+        label.setBounds(319, 570, 223, 63);
+        c.add(label);
 
+        label_1 = new JLabel("该版权归郑州轻工业大学软件学院软件工程1801汪京龙所有");
+        label_1.setFont(new Font("宋体", Font.PLAIN, 16));
+        label_1.setForeground(new Color(0, 191, 255));
+        label_1.setBounds(221, 624, 492, 27);
+        getContentPane().add(label_1);
 
         //信息导入
         InfoLook();
@@ -237,7 +249,10 @@ public class MenuWindow extends JFrame {
                 int confirm = JOptionPane.showConfirmDialog(null, "您确定要注销该用户吗？","提示",JOptionPane.YES_NO_CANCEL_OPTION);
                 if(confirm == JOptionPane.YES_OPTION )
                 {
-                    String sql2 = "delete from user where id = '"+Config.id+"'";
+                    dispose();
+                    LoginWindow frame = new LoginWindow();
+                    frame.setVisible(true);
+                   /* String sql2 = "delete from user where id = '"+Config.id+"'";
                     Connection con = null;
                     Statement statement = null;
                     ResultSet rs = null;
@@ -274,7 +289,7 @@ public class MenuWindow extends JFrame {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
                         }
-                    }
+                    }*/
                 }
             }
         });
@@ -289,6 +304,20 @@ public class MenuWindow extends JFrame {
                 {
                     System.exit(0);
                 }
+            }
+        });
+        //帮助说明
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"帮助说明请联系客服人员邮箱\n1617289652@qq.com");
+            }
+        });
+        //关于系统
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"版本号：1.0.0");
             }
         });
         //个人详情

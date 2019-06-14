@@ -1,6 +1,7 @@
 package view;
-
-
+/**
+ * @wang
+ */
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -168,7 +169,7 @@ public class LoginWindow extends JFrame {
                     Connection conn = null;
                     Statement statement = null;
                     ResultSet rs = null;
-                    String sql = "select id,password from user";
+                    String sql = "select * from user";
                     int i=0;
                     try {
                         conn = DBConnect.getConnection();
@@ -182,12 +183,22 @@ public class LoginWindow extends JFrame {
                                 if(new String(passwordField.getPassword()).trim().equals(rs.getString("password").trim()))
                                 {
                                     //
-                                    System.out.println(textField.getText()+"用户已登录");
-                                    Config.id = textField.getText();
-                                    JOptionPane.showMessageDialog(null, "登陆成功");
-                                    MenuWindow frame = new MenuWindow();
-                                    frame.setVisible(true);
-                                    dispose();
+                                    if(rs.getInt("state")==1)
+                                    {
+                                        System.out.println(textField.getText()+"用户已登录");
+                                        Config.id = textField.getText();
+                                        JOptionPane.showMessageDialog(null, "登陆成功");
+                                        MenuWindow frame = new MenuWindow();
+                                        frame.setVisible(true);
+                                        dispose();
+                                    }
+                                    else
+                                    {
+                                        JOptionPane.showMessageDialog(null, "该用户尚未激活，请联系相关人员进行激活！");
+                                        textField.setText("");
+                                        passwordField.setText("");
+                                    }
+
                                 }
                                 else
                                 {
@@ -235,7 +246,8 @@ public class LoginWindow extends JFrame {
             }
             public void mousePressed(MouseEvent e)
             {
-
+                RegisterWindow frame = new RegisterWindow();
+                frame.setVisible(true);
             }
         });
         //忘记密码
@@ -250,7 +262,7 @@ public class LoginWindow extends JFrame {
             }
             public void mousePressed(MouseEvent e)
             {
-
+                JOptionPane.showMessageDialog(null,"请联系管理员进行密码重置！");
             }
         });
         //最小化
